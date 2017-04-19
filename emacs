@@ -18,7 +18,10 @@
 
 ; Supprime tous les espaces en fin de ligne 
 ; http://www.splode.com/users/friedman...re/emacs-lisp/ 
-(autoload 'nuke-trailing-whitespace "whitespace" nil t)
+(add-hook 'c++-mode-hook '(lambda ()
+(add-hook 'write-contents-hooks 'delete-trailing-whitespace nil t)))
+(add-hook   'c-mode-hook '(lambda ()
+(add-hook 'write-contents-hooks 'delete-trailing-whitespace nil t)))
 
 ; Activer la coloration syntaxique 
 (global-font-lock-mode t)
